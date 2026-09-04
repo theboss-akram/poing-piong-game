@@ -7,9 +7,9 @@ enum enu {RIGHT, LEFT}
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "ball":
-		if dir == enu.RIGHT:
-			game.add_point_p2()
-		elif dir == enu.LEFT:
-			game.add_point_p1()
-		
+		match dir:
+			enu.RIGHT:
+				game.add_point_p2()
+			enu.LEFT:
+				game.add_point_p1()
 	
