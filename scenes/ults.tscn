@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=3 uid="uid://8hdx6iiagrmk"]
+
+[ext_resource type="Script" uid="uid://dp1qbdyoayqol" path="res://scripts/Ults.gd" id="1_68jho"]
+[ext_resource type="Texture2D" uid="uid://brnlxfg6bbaqo" path="res://assets/images (1).png" id="2_c6127"]
+[ext_resource type="Texture2D" uid="uid://bt4j2uocpi4h8" path="res://assets/images.png" id="3_c6127"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c6127"]
+bg_color = Color(0.653843, 1, 0.581441, 1)
+
+[node name="Ults" type="Node2D"]
+script = ExtResource("1_68jho")
+
+[node name="Timer_push" type="Timer" parent="."]
+wait_time = 15.0
+
+[node name="Timer_stop" type="Timer" parent="."]
+wait_time = 15.0
+
+[node name="cooldowns" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer_push" type="HBoxContainer" parent="cooldowns"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -572.0
+offset_top = -84.0
+offset_right = -40.0
+offset_bottom = 44.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+alignment = 1
+
+[node name="TextureRect_push" type="TextureRect" parent="cooldowns/HBoxContainer_push"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_c6127")
+
+[node name="ProgressBar_push" type="ProgressBar" parent="cooldowns/HBoxContainer_push"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/fill = SubResource("StyleBoxFlat_c6127")
+max_value = 1.0
+show_percentage = false
+
+[node name="HBoxContainer_stop" type="HBoxContainer" parent="cooldowns"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -84.0
+offset_right = 532.0
+offset_bottom = 44.0
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+alignment = 1
+
+[node name="ProgressBar_stop" type="ProgressBar" parent="cooldowns/HBoxContainer_stop"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/fill = SubResource("StyleBoxFlat_c6127")
+max_value = 1.0
+fill_mode = 1
+show_percentage = false
+
+[node name="TextureRect_stop" type="TextureRect" parent="cooldowns/HBoxContainer_stop"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_c6127")
+
+[connection signal="timeout" from="Timer_push" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer_stop" to="." method="_on_timer_stop_timeout"]

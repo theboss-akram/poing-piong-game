@@ -1,17 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://t5wcgpdcblrd"]
+[gd_scene load_steps=7 format=3 uid="uid://t5wcgpdcblrd"]
 
-[ext_resource type="PackedScene" uid="uid://b7nn7hjay7wrr" path="res://scenes/players.tscn" id="1_80nbo"]
-[ext_resource type="Script" uid="uid://cfqy2q0waf27d" path="res://game.gd" id="1_e2o6t"]
-[ext_resource type="PackedScene" uid="uid://c7fpknjfwhwnp" path="res://scenes/ball.tscn" id="3_feb5d"]
-[ext_resource type="PackedScene" uid="uid://du8elwwprsrma" path="res://scenes/loss_barrier.tscn" id="4_fc0e3"]
+[ext_resource type="Script" uid="uid://cfqy2q0waf27d" path="res://scripts/game.gd" id="1_iywne"]
+[ext_resource type="PackedScene" uid="uid://8hdx6iiagrmk" path="res://scenes/ults.tscn" id="2_p57ef"]
+[ext_resource type="PackedScene" uid="uid://b7nn7hjay7wrr" path="res://scenes/players.tscn" id="3_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://c7fpknjfwhwnp" path="res://scenes/ball.tscn" id="4_gee14"]
+[ext_resource type="PackedScene" uid="uid://du8elwwprsrma" path="res://scenes/loss_barrier.tscn" id="5_0tnpc"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_e2o6t"]
 a = Vector2(546, 324)
 b = Vector2(-547, 324)
 
 [node name="game" type="Node2D"]
-script = ExtResource("1_e2o6t")
+script = ExtResource("1_iywne")
 metadata/_edit_vertical_guides_ = [-863.0]
+
+[node name="Ults" parent="." instance=ExtResource("2_p57ef")]
+z_index = 2
+position = Vector2(154, 317)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -46,18 +51,18 @@ points = PackedVector2Array(0.62361, 474.568, 0.62361, -382.588, 118.198, -382.5
 width = 2.36
 default_color = Color(0.355314, 0.355314, 0.355314, 1)
 
-[node name="player_1" parent="." instance=ExtResource("1_80nbo")]
+[node name="player_1" parent="." instance=ExtResource("3_u5sy4")]
 position = Vector2(-547, 0)
 up = "w"
 down = "s"
 
-[node name="player_2" parent="." instance=ExtResource("1_80nbo")]
+[node name="player_2" parent="." instance=ExtResource("3_u5sy4")]
 position = Vector2(547, 0)
 rotation = 3.14159
 up = "up"
 down = "down"
 
-[node name="ball" parent="." instance=ExtResource("3_feb5d")]
+[node name="ball" parent="." instance=ExtResource("4_gee14")]
 
 [node name="barrier1" type="CharacterBody2D" parent="."]
 
@@ -70,10 +75,10 @@ rotation = 3.14159
 [node name="CollisionShape2D" type="CollisionShape2D" parent="barrier2"]
 shape = SubResource("SegmentShape2D_e2o6t")
 
-[node name="loss_barrier_1" parent="." instance=ExtResource("4_fc0e3")]
+[node name="loss_barrier_1" parent="." instance=ExtResource("5_0tnpc")]
 position = Vector2(-404, 0)
 rotation = 3.14159
 
-[node name="loss_barrier_2" parent="." instance=ExtResource("4_fc0e3")]
+[node name="loss_barrier_2" parent="." instance=ExtResource("5_0tnpc")]
 position = Vector2(406, 0)
 dir = 1
