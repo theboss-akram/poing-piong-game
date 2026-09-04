@@ -1,13 +1,15 @@
 extends Area2D
 
+enum enu {RIGHT, LEFT}
+
 @onready var game = $".."
-@export var dir : int
+@export var dir : enu
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "ball":
-		if dir == 1:
+		if dir == enu.RIGHT:
 			game.add_point_p2()
-		elif dir == 2:
+		elif dir == enu.LEFT:
 			game.add_point_p1()
 		
 	

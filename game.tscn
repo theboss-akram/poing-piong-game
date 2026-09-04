@@ -73,8 +73,7 @@ shape = SubResource("SegmentShape2D_e2o6t")
 [node name="loss_barrier_1" parent="." instance=ExtResource("4_fc0e3")]
 position = Vector2(-404, 0)
 rotation = 3.14159
-dir = 1
 
 [node name="loss_barrier_2" parent="." instance=ExtResource("4_fc0e3")]
 position = Vector2(406, 0)
-dir = 2
+dir = 1
