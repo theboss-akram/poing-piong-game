@@ -15,6 +15,10 @@ run/main_scene="uid://1hwnksv5gvxg"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://assets/icon.svg"
 
+[autoload]
+
+GameManager="*res://scripts/game_manager.gd"
+
 [input]
 
 w={

@@ -2,8 +2,8 @@ extends Node2D
 
 var point_1 = 0
 var point_2 = 0
-@onready var score = $UI/score
-@onready var ball = $ball
+@onready var score: Label = $UI/score
+@onready var ball: CharacterBody2D = $ball
 
 func _ready() -> void:
 	reset()
