@@ -23,13 +23,6 @@ func _physics_process(_delta):
 	
 	position.y = clamp(position.y, -270, 270)
 	
-	if position.x != initial_pos.x:
-		game.reset()
-		position = initial_pos
-		game.score.text = "sorry"
-		await get_tree().create_timer(0.5).timeout
-		game.score.text = str(game.point_1) + " - " + str(game.point_2)
-	
 	if Input.is_action_just_pressed("ui_cancel"):
 		game.reset()
 	
